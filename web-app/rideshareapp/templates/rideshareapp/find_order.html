@@ -1,0 +1,12 @@
+<h2>Select order you want!</h2>
+<ul>
+    {% for each_ride in result_ride %}
+        <li><p>Ride information: 
+            Destination: {{ each_ride.destination }}, 
+            Owner name: {{ each_ride.owner_name }}, 
+            Total passengers: {{ each_ride.passenger_num }},
+            Special Request: {{ each_ride.special_request }}</p>
+        <a href="{% url 'rideshareapp:take_order' each_ride.id %}">Join Ride</a></li>
+    {% endfor %}
+</ul>
+<h3><a href = "{% url 'rideshareapp:index' %}">Go back home</a></h3>

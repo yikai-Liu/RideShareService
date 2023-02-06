@@ -1,0 +1,10 @@
+
+{% block content %}
+<h2>Edit user account info!</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit</button>
+</form>
+<h3><a href = "{% url 'rideshareapp:index' %}">Go back home</a></h3>
+{% endblock %}

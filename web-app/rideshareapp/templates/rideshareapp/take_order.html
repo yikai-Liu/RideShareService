@@ -1,0 +1,8 @@
+<h1>Take your order ride now!</h1>
+<p>Your party size: {{ride.passenger_num}}<p><br>
+<p>Ride information: Rider owner: {{ ride.owner_name }}, Ride destination: {{ ride.destination }}</p><br>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm your order</button>
+</form>
+<h3><a href = "{% url 'rideshareapp:index' %}">Go back home</a></h3>

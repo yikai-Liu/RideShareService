@@ -1,0 +1,8 @@
+<h2>Find Your Share!</h2>
+<ul>
+    {% for each_ride in result_ride %}
+        <li><p>Ride information: {{ each_ride.owner_name }}, {{ each_ride.id }}</p>
+        <a href="{% url 'rideshareapp:join_share' each_ride.id sharer_num %}">Join Ride</a></li>
+    {% endfor %}
+</ul>
+<h3><a href = "{% url 'rideshareapp:index' %}">Go back home</a></h3>

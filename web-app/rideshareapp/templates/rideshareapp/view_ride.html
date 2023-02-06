@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+    </head>
+    <body>
+        <h2 style="color:dodgerblue;">Here is ride details!</h2>
+        <h5>Ride Info:</h5>
+        <table>
+            <tr>
+                <th>Owner Name</th>
+                <th>Destination</th>
+                <th>Arrival Time</th>
+                <th>Share Status</th>
+                <th>Owner Party Size</th>
+                <th>Total Number of Passengers</th>
+                <th>Sharer Name</th>
+                <th>Sharer Party Size</th>
+                <th>Ride Status</th>
+                {% if driverinfo %}
+                <th>Driver Name</th>
+                <th>Vehicle Type</th>
+                <th>Vehicle Plate</th>
+                <th>Vehilce Maximum Capacity</th>
+                <th>Special Vehicle Info</th>
+                {% endif %}
+                
+            </tr>
+            <tr>
+                <td>{{ ride.owner_name }}</td>
+                <td>{{ ride.destination }}</td>
+                <td>{{ ride.arrival_time }}</td>
+                <td>{{ ride.shared_status }}</td>
+                <td>{{ ride.owner_num }}</td>
+                <td>{{ ride.passenger_num }}</td>
+                <td>{{ ride.sharer_name }}</td>
+                <td>{{ ride.sharer_num }}</td>
+                <td>{{ ride.ride_status }}</td>
+                {% if driverinfo %}
+                <td>{{ driverinfo.user_name }}</td>
+                <td>{{ driverinfo.type }}</td>
+                <td>{{ driverinfo.plate }}</td>
+                <td>{{ driverinfo.passengers_num }}</td>
+                <td>{{ driverinfo.special_vehicle_info }}</td>
+                {% endif %}
+            </tr>
+        </table><br>
+        <h3><a href = "{% url 'rideshareapp:index' %}">Go back home</a></h3>
+    </body>
+</html>
+

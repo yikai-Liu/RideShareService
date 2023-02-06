@@ -1,0 +1,12 @@
+
+{% block content %}
+<h1>Are you sure you want to cancel this order!</h1>
+<h2>Cancel your order!</h2>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Cancel!</button>
+</form>
+<h2>Click here to go back to all your open ride!</h2>
+<a href = "{% url 'rideshareapp:find_open' %}">Go back!</a>
+<h3><a href = "{% url 'rideshareapp:index' %}">Go back home</a></h3>
+{% endblock %}

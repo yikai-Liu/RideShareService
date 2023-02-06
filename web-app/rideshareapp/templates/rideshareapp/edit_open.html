@@ -1,0 +1,25 @@
+
+{% block content %}
+<h2>Edit Your Open Ride</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if form.errors %}
+    <div class="alert alert-danger">
+      <strong>There are errors in the form:</strong>
+      <ul>
+        {% for field in form %}
+          {% for error in field.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  
+  <button type="submit">Submit</button><br>
+
+</form>
+<a href = "{% url 'rideshareapp:cancel_order' ride_id %}"> Cancel your ride here!</area>
+<h3><a href = "{% url 'rideshareapp:index' %}">Go back home</a></h3>
+{% endblock %}

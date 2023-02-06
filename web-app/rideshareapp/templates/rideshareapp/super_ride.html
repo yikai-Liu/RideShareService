@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+    </head>
+    <body>
+        <h2>Here are all your non-complete(open and confirmed) ride!</h2>
+        <h2 style="color:dodgerblue;">Open Ride:</h2>
+        <h2 style="color:dodgerblue;">Role: Owner</h2>
+        <ul>
+        
+            
+            {% for each_ride in owner_ride %}
+                <li>
+                    <h5>Ride Info:</h5>
+                    <table>
+                        <tr>
+                            <th>Owner Name</th>
+                            <th>Destination</th>
+                            <th>Arrival Time</th>
+                            <th>Share Status</th>
+                            <th>Owner Party Size</th>
+                            <th>Total Number of Passengers</th>
+                            <th>Sharer Name</th>
+                            <th>Sharer Party Size</th>
+                            <th>Ride Status</th>
+                            <th>View Ride Details</th>
+                        </tr>
+                        <tr>
+                            <td>{{ each_ride.owner_name }}</td>
+                            <td>{{ each_ride.destination }}</td>
+                            <td>{{ each_ride.arrival_time }}</td>
+                            <td>{{ each_ride.shared_status }}</td>
+                            <td>{{ each_ride.owner_num }}</td>
+                            <td>{{ each_ride.passenger_num }}</td>
+                            <td>{{ each_ride.sharer_name }}</td>
+                            <td>{{ each_ride.sharer_num }}</td>
+                            <td>{{ each_ride.ride_status }}</td>
+                            <td><a href="{% url 'rideshareapp:view_ride' each_ride.id %}">View Ride Details</a></td>
+                        </tr>
+                    </table><br>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2 style="color:dodgerblue;">Role: Sharer</h2>
+        <ul>
+        
+            
+            {% for each_ride in sharer_ride %}
+                <li>
+                    <h5>Ride Info:</h5>
+                    <table>
+                        <tr>
+                            <th>Owner Name</th>
+                            <th>Destination</th>
+                            <th>Arrival Time</th>
+                            <th>Share Status</th>
+                            <th>Owner Party Size</th>
+                            <th>Total Number of Passengers</th>
+                            <th>Sharer Name</th>
+                            <th>Sharer Party Size</th>
+                            <th>Ride Status</th>
+                            <th>View Ride Details</th>
+                        </tr>
+                        <tr>
+                            <td>{{ each_ride.owner_name }}</td>
+                            <td>{{ each_ride.destination }}</td>
+                            <td>{{ each_ride.arrival_time }}</td>
+                            <td>{{ each_ride.shared_status }}</td>
+                            <td>{{ each_ride.owner_num }}</td>
+                            <td>{{ each_ride.passenger_num }}</td>
+                            <td>{{ each_ride.sharer_name }}</td>
+                            <td>{{ each_ride.sharer_num }}</td>
+                            <td>{{ each_ride.ride_status }}</td>
+                            <td><a href="{% url 'rideshareapp:view_ride' each_ride.id %}">View Ride Details</a></td>
+                        </tr>
+                    </table><br>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2 style="color:dodgerblue;">Confirmed Ride:</h2>
+        <ul>
+        
+            
+            {% for each_ride in driver_ride %}
+                <li>
+                    <h5>Ride Info:</h5>
+                    <table>
+                        <tr>
+                            <th>Owner Name</th>
+                            <th>Destination</th>
+                            <th>Arrival Time</th>
+                            <th>Share Status</th>
+                            <th>Owner Party Size</th>
+                            <th>Total Number of Passengers</th>
+                            <th>Sharer Name</th>
+                            <th>Sharer Party Size</th>
+                            <th>Ride Status</th>
+                            <th>View Ride Details</th>
+                        </tr>
+                        <tr>
+                            <td>{{ each_ride.owner_name }}</td>
+                            <td>{{ each_ride.destination }}</td>
+                            <td>{{ each_ride.arrival_time }}</td>
+                            <td>{{ each_ride.shared_status }}</td>
+                            <td>{{ each_ride.owner_num }}</td>
+                            <td>{{ each_ride.passenger_num }}</td>
+                            <td>{{ each_ride.sharer_name }}</td>
+                            <td>{{ each_ride.sharer_num }}</td>
+                            <td>{{ each_ride.ride_status }}</td>
+                            <td><a href="{% url 'rideshareapp:view_ride' each_ride.id %}">View Ride Details</a></td>
+                        </tr>
+                    </table><br>
+                </li>
+            {% endfor %}
+        </ul>
+    <h3><a href = "{% url 'rideshareapp:index' %}">Go back home</a></h3>
+    </body>
+</html>
+
