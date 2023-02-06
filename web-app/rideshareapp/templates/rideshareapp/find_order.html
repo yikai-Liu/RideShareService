@@ -1,4 +1,76 @@
-<h2>Select order you want!</h2>
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+    </head>
+    <body>
+        <h2 style="color:dodgerblue;">Find your order!</h2>
+        <ul>
+        
+            
+            {% for each_ride in result_ride %}
+                <li>
+                    <h5>Ride Info:</h5>
+                    <table>
+                        <tr>
+                            <th>Owner Name</th>
+                            <th>Destination</th>
+                            <th>Arrival Time</th>
+                            <th>Share Status</th>
+                            <th>Owner Party Size</th>
+                            <th>Total Number of Passengers</th>
+                            <th>Sharer Name</th>
+                            <th>Sharer Party Size([Sharer_userid, Sharer_Partysize])</th>
+                            <th>Ride Status</th>
+                            <th>Join Ride</th>
+                        </tr>
+                        <tr>
+                            <td>{{ each_ride.owner_name }}</td>
+                            <td>{{ each_ride.destination }}</td>
+                            <td>{{ each_ride.arrival_time }}</td>
+                            <td>{{ each_ride.shared_status }}</td>
+                            <td>{{ each_ride.owner_num }}</td>
+                            <td>{{ each_ride.passenger_num }}</td>
+                            <td>{{ each_ride.sharer_name }}</td>
+                            <td>{{ each_ride.sharer_num }}</td>
+                            <td>{{ each_ride.ride_status }}</td>
+                            <td><a href="{% url 'rideshareapp:take_order' each_ride.id %}">Take Order</a></td>
+                        </tr>
+                    </table><br>
+                </li>
+            {% endfor %}
+        </ul>
+
+    <h3><a href = "{% url 'rideshareapp:index' %}">Go back home</a></h3>
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <h2>Select order you want!</h2>
 <ul>
     {% for each_ride in result_ride %}
         <li><p>Ride information: 
@@ -9,4 +81,4 @@
         <a href="{% url 'rideshareapp:take_order' each_ride.id %}">Join Ride</a></li>
     {% endfor %}
 </ul>
-<h3><a href = "{% url 'rideshareapp:index' %}">Go back home</a></h3>
+<h3><a href = "{% url 'rideshareapp:index' %}">Go back home</a></h3> -->

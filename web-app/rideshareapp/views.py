@@ -147,11 +147,11 @@ def take_order(request, ride_id):
             email_list.append(sharerEmail)
     
     if request.method == 'POST':
-        # update ride
+        # print(email_list)
         # send_mail(
         #     'RideShare Order Confirmed',
         #     'Your order is confirmed by a driver',
-        #     'rideshareyz@protonmail.com',
+        #     'rideshareyz@outlook.com',
         #     email_list,
         #     fail_silently=False,
         # )
@@ -408,3 +408,27 @@ def edit_useraccount(request):
         form.fields["lastname"].initial = user.last_name
         form.fields["email"].initial = user.email
     return render(request, 'rideshareapp/edit_useraccount.html', {'form': form})
+
+
+@login_required
+def delete_driver(request):
+    user = request.user
+    userinfo = get_object_or_404(Userinfo, user=user)
+    ride = Ride.objects.filter(driver_name = userinfo.user_name, ride_status = 'confirmed')
+    
+    if request.method == 'POST':
+        if ride:
+            error_msg = "You can not delete your driver status because you have confirmed ride"
+            return render(request, 'rideshareapp/delete_driver.html', {'error_msg': error_msg})
+            
+        else:
+            userinfo.driver_status = False
+            userinfo.plate = None
+            userinfo.type = None
+            userinfo.passengers_num = None
+            userinfo.special_vehicle_info = None
+            userinfo.save()
+            return HttpResponseRedirect(reverse('rideshareapp:index'))
+            
+    return render(request, 'rideshareapp/delete_driver.html')
+

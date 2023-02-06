@@ -24,5 +24,5 @@ urlpatterns = [
     path('finish_ride/<int:ride_id>', views.finish_ride, name = 'finish_ride'),
     path('view_personal/', views.view_personal, name = 'view_personal'),
     path('edit_useraccount/', views.edit_useraccount, name = 'edit_useraccount'),
-    
+    path('delete_driver/', views.delete_driver, name = 'delete_driver'),
 ]

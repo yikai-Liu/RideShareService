@@ -1,0 +1,24 @@
+
+{% block content %}
+
+<style>
+
+    
+    h1 {
+     color: red;
+    }
+    </style>
+    
+<h2>Delete Your Driver Info</h2>
+
+<h3>Are You sure you want to delete your driver info!</h2>
+<h1>{{error_msg}}</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" >Delete</button>
+</form>
+
+
+<h3>Go back to home page!</h2>
+<h3><a href = "{% url 'rideshareapp:index' %}">Go back home</a></h3>
+{% endblock %}

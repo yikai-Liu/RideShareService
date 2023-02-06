@@ -130,8 +130,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_URL = "rideshareapp/"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.protonmail.com'
+EMAIL_HOST = 'smtp-mail.outlook.com'
 EMAIL_POST = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'rideshareyz@protonmail.com'
+EMAIL_HOST_USER = 'rideshareyz@outlook.com'
 EMAIL_HOST_PASSWORD = 'xzh2023.'
