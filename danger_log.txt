@@ -1,6 +1,7 @@
 Danger Log for ECE568 HW1
 Zuhang Xu; Yikai Liu
 
+
 What we accomplished:
 1. We have @login_required, which allows only authenticated users to access their index pages and all other pages.
 2. We use CSRF_TOKEN in all forms to ensure security.
