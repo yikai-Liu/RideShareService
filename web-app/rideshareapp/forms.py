@@ -24,7 +24,7 @@ class EditUserInfoForm(forms.Form):
 
 class RequestRideForm(forms.Form):
     destination = forms.CharField(label='destination', max_length=100)
-    arrival_time = forms.DateTimeField(label='Arrival Time')
+    arrival_time = forms.DateTimeField(label='Arrival Time(format: yyyy-mm-dd 00:00)')
     owner_num = forms.IntegerField(label='Number of passengers')
     shared_status = forms.BooleanField(label='Shared or Not', required=False)
     vehicle_type = forms.CharField(label='Vehicle Type', max_length=100, required=False)
@@ -38,8 +38,8 @@ class RequestRideForm(forms.Form):
         return owner_num
 
 class RequestShareForm(forms.Form):
-    arrival_from = forms.DateTimeField(label='Arrival Time From')
-    arrival_to = forms.DateTimeField(label='Arrival Time To')
+    arrival_from = forms.DateTimeField(label='Arrival Time From(format: yyyy-mm-dd 00:00)')
+    arrival_to = forms.DateTimeField(label='Arrival Time To(format: yyyy-mm-dd 00:00)')
     destination = forms.CharField(label='Destination address', max_length=100)
     sharer_num = forms.IntegerField(label='Number of sharers')
 
@@ -57,7 +57,7 @@ class RegisterVehicleForm(forms.Form):
 
 class EditOpenRideFormOwner(forms.Form):
     destination = forms.CharField(label='destination', max_length=100)
-    arrival_time = forms.DateTimeField(label='Arrival Time')
+    arrival_time = forms.DateTimeField(label='Arrival Time(format: yyyy-mm-dd 00:00)')
     owner_num = forms.IntegerField(label='Number of passengers')
     shared_status = forms.BooleanField(label='Shared or Not', required=False)
     vehicle_type = forms.CharField(label='Vehicle Type', max_length=100, required=False)

@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-(z@ib7m58fcpk!p$c$!-r%(2#sh2-gnz0@d)zemd!zu2bvsq-d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['web','vcm-31144.vm.duke.edu','127.0.0.1']
 
 
 # Application definition
@@ -78,9 +78,10 @@ WSGI_APPLICATION = "rideshareproj.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "ridesharedb",
-        "USER": "xuzuhang",
-        "HOST": '',
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "success",
+        "HOST": 'db',
         "PORT": 5432,
     }
 }
@@ -114,7 +115,7 @@ TIME_ZONE = "UTC"
 
 USE_I18N = True
 
-USE_TZ = True
+# USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
