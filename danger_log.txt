@@ -1,0 +1,12 @@
+Danger Log for ECE568 HW1
+Zuhang Xu; Yikai Liu
+
+What we accomplished:
+1. We have @login_required, which allows only authenticated users to access their index pages and all other pages.
+2. We use CSRF_TOKEN in all forms to ensure security.
+3. Instead of passing in user_id into the url each time, we implement the view with session, which is more secure. 
+4. We also ensure when you want to request a ride or a share form, you can not pass in a non-positive passenger number.
+5. We use django built-in user authentication which does not require you to put a password in a self-defined database. This is more robust and secure.
+
+Further Robust related questions:
+6. We are not sure about data race situations in Django and how to prevent such cases. For example, if two drivers want to confirm the same ride at the same time. 
