@@ -148,13 +148,13 @@ def take_order(request, ride_id):
     
     if request.method == 'POST':
         # print(email_list)
-        # send_mail(
-        #     'RideShare Order Confirmed',
-        #     'Your order is confirmed by a driver',
-        #     'rideshareyz@outlook.com',
-        #     email_list,
-        #     fail_silently=False,
-        # )
+        send_mail(
+            'RideShare Order Confirmed',
+            'Your order is confirmed by a driver',
+            'rideshareyz@outlook.com',
+            email_list,
+            fail_silently=False,
+        )
         ride.ride_status = 'confirmed'
         ride.driver_name = userinfo.user_name
         ride.vehicle_type = userinfo.type 
